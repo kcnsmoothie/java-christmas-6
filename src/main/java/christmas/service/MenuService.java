@@ -21,4 +21,12 @@ public class MenuService {
         }
         return order;
     }
+
+    public int calculateBeforeDcTotal(Map<Menu, Integer> order) {
+        int beforeDcTotal = 0;
+        for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
+            beforeDcTotal += entry.getKey().getPrice() * entry.getValue();
+        }
+        return (int) beforeDcTotal;
+    }
 }

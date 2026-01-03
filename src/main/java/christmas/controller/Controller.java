@@ -49,6 +49,9 @@ public class Controller {
 
                 Map<Menu, Integer> order = menuService.calculateOrder(menuName, amount);
 
+                int beforeDcTotal = menuService.calculateBeforeDcTotal(order);
+                System.out.println(beforeDcTotal);
+
             } catch (IllegalArgumentException e) {
                 outputView.printErrorMessage(e);
             }
