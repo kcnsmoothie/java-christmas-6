@@ -1,6 +1,9 @@
 package christmas.view;
 
+import static christmas.constant.ViewMessage.CHRISTMAS_DC;
+import static christmas.constant.ViewMessage.GIFT_DC;
 import static christmas.constant.ViewMessage.ORDER_MENU;
+import static christmas.constant.ViewMessage.SPECIAL_DC;
 
 import christmas.constant.Menu;
 import java.util.Map;
@@ -21,12 +24,22 @@ public class OutputView {
         System.out.println("<할인 전 총주문 금액>");
     }
 
-    public void printGiftMenu() {
+    public void printGiftMenu(String giftMenuStr) {
         System.out.println("<증정 메뉴>");
+        System.out.println(giftMenuStr);
     }
 
-    public void printBenefit() {
+    public void printBenefit(int christmasDc, int dayDc, int specialDc, int giftMenu) {
         System.out.println("<혜택 내역>");
+        if (christmasDc != 0) {
+            System.out.println(CHRISTMAS_DC.getViewMessage(christmasDc));
+        }
+        if (specialDc != 0) {
+            System.out.println(SPECIAL_DC.getViewMessage(specialDc));
+        }
+        if (giftMenu != 0) {
+            System.out.println(GIFT_DC.getViewMessage(-25000));
+        }
     }
 
     public void printBenefitAmount() {

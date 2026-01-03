@@ -9,6 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Validator {
+    public static void validateNotBlank(String inputValue) {
+        if (inputValue == null || inputValue.isBlank()){
+
+        }
+    }
     public static void validateNumberRange(int number){
         if (number < 1 || number > 31) {
             throw new IllegalArgumentException(DATE_ERROR.getErrorMessage());

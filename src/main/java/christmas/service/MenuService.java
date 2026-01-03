@@ -36,7 +36,7 @@ public class MenuService {
     public int calculateChristmasDc(int date) {
         int christmasDc = 0;
         if (date <= 25) {
-            christmasDc -= 900 - (100 * date);
+            christmasDc += -900 - (100 * date);
         }
         return christmasDc;
     }
@@ -56,5 +56,25 @@ public class MenuService {
             }
         }
         return dayDc;
+    }
+
+    public int calculateSpecialDc(int date) {
+        int specialDc = 0;
+        int[] specialDay = {3, 10, 17, 24, 25, 31};
+        for (int day : specialDay) {
+            if (day == date) {
+                specialDc -= 1000;
+                break;
+            }
+        }
+        return specialDc;
+    }
+
+    public int calculateGiftMenu(int beforeDcTotal) {
+        int giftMenu = 0;
+        if (beforeDcTotal >= 120000) {
+            giftMenu = 1;
+        }
+        return giftMenu;
     }
 }

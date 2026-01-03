@@ -32,9 +32,21 @@ public class Controller {
         outputView.printBeforeDcTotal();
         int beforeDcTotal = menuService.calculateBeforeDcTotal(order);
         System.out.println(beforeDcTotal + "원");
+
         int christmasDc = menuService.calculateChristmasDc(date);
         int dayDc = menuService.calculateWeekOrWeekend(date, order);
+        int specialDc = menuService.calculateSpecialDc(date);
+        int giftMenu = menuService.calculateGiftMenu(beforeDcTotal);
 
+        int totalDc = christmasDc + dayDc + specialDc;
+
+        String giftMenuStr = "없음";
+        if (giftMenu != 0) {
+            giftMenuStr = "샴페인 1개";
+            totalDc -= 25000;
+        }
+
+        outputView.printGiftMenu(giftMenuStr);
     }
 
     private int getDate() {
