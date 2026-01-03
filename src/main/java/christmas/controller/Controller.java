@@ -16,5 +16,7 @@ public class Controller {
     }
 
     public void run() {
+        String inputDate = inputView.inputDate();
+        inputView.inputMenuAmount();
     }
 }
