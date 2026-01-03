@@ -1,7 +1,7 @@
 package christmas;
 
 import christmas.controller.Controller;
-import christmas.service.Service;
+import christmas.service.MenuService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -10,7 +10,7 @@ public class Application {
         // TODO: 프로그램 구현
         InputView inputView = new InputView();
         OutputView outputView = new OutputView();
-        Service Service = new Service();
+        MenuService Service = new MenuService();
 
         Controller Controller = new Controller(inputView, outputView, Service);
 
