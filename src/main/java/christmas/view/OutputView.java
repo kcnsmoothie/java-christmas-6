@@ -4,6 +4,7 @@ import static christmas.constant.ViewMessage.CHRISTMAS_DC;
 import static christmas.constant.ViewMessage.GIFT_DC;
 import static christmas.constant.ViewMessage.ORDER_MENU;
 import static christmas.constant.ViewMessage.SPECIAL_DC;
+import static christmas.constant.ViewMessage.WEEK_DC;
 
 import christmas.constant.Menu;
 import java.util.Map;
@@ -34,20 +35,26 @@ public class OutputView {
         if (christmasDc != 0) {
             System.out.println(CHRISTMAS_DC.getViewMessage(christmasDc));
         }
+        if (dayDc != 0) {
+            System.out.println(WEEK_DC.getViewMessage(christmasDc));
+        }
         if (specialDc != 0) {
             System.out.println(SPECIAL_DC.getViewMessage(specialDc));
         }
         if (giftMenu != 0) {
             System.out.println(GIFT_DC.getViewMessage(-25000));
         }
+        System.out.println("없음");
     }
 
-    public void printBenefitAmount() {
+    public void printBenefitAmount(int totalDc) {
         System.out.println("<총혜택 금액>");
+        System.out.println(totalDc + "원");
     }
 
-    public void printAfterDcTotal() {
+    public void printAfterDcTotal(int afterDcTotal) {
         System.out.println("<할인 후 예상 결제 금액>");
+        System.out.println(afterDcTotal + "원");
     }
 
     public void printDecemberEventBadge() {

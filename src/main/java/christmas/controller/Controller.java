@@ -46,7 +46,13 @@ public class Controller {
             totalDc -= 25000;
         }
 
+        int afterDcTotal = beforeDcTotal - totalDc;
+
         outputView.printGiftMenu(giftMenuStr);
+        outputView.printBenefit(christmasDc, dayDc, specialDc, giftMenu);
+        outputView.printBenefitAmount(totalDc);
+        outputView.printAfterDcTotal(afterDcTotal);
+        outputView.printDecemberEventBadge();
     }
 
     private int getDate() {
