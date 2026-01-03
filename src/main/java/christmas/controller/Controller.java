@@ -28,8 +28,13 @@ public class Controller {
         List<String> menuName = getMenuName(parsedMenuAmountList);
         List<Integer> amount = getAmount(parsedMenuAmountList);
         Map<Menu, Integer> order = menuService.calculateOrder(menuName, amount);
+        outputView.printOrderMenu(order);
+        outputView.printBeforeDcTotal();
         int beforeDcTotal = menuService.calculateBeforeDcTotal(order);
         System.out.println(beforeDcTotal + "원");
+        int christmasDc = menuService.calculateChristmasDc(date);
+        int dayDc = menuService.calculateWeekOrWeekend(date, order);
+
     }
 
     private int getDate() {

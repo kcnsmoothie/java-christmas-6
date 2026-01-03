@@ -1,6 +1,9 @@
 package christmas.service;
 
+import static christmas.constant.ViewMessage.ORDER_MENU;
+
 import christmas.constant.Menu;
+import christmas.constant.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,13 +36,25 @@ public class MenuService {
     public int calculateChristmasDc(int date) {
         int christmasDc = 0;
         if (date <= 25) {
-            christmasDc += 900 + (100 * date);
+            christmasDc -= 900 - (100 * date);
         }
         return christmasDc;
     }
 
-    public void calculateWeekdayDc(int date) {
-        int weekdayDc = 0;
-        if(date)
+    public int calculateWeekOrWeekend(int date, Map<Menu, Integer> order) {
+        int dayDc = 0;
+        if(date % 7 == 1 || date % 7 == 2){
+            for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
+                if (entry.getValue() > 0 && entry.getKey().getType() == Type.MAIN) {
+                    dayDc -= 2023;
+                }
+            }
+        }
+        for (Map.Entry<Menu, Integer> entry : order.entrySet()) {
+            if (entry.getValue() > 0 && entry.getKey().getType() == Type.DESSERT) {
+                dayDc -= 2023;
+            }
+        }
+        return dayDc;
     }
 }
