@@ -1,6 +1,8 @@
 package christmas.controller;
 
 import christmas.service.Service;
+import christmas.util.Parser;
+import christmas.util.Validator;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -17,6 +19,8 @@ public class Controller {
 
     public void run() {
         String inputDate = inputView.inputDate();
+        int intDate = Parser.stringToInt(inputDate);
+        Validator.validateNumberRange(intDate);
         inputView.inputMenuAmount();
     }
 }
