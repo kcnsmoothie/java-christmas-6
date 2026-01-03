@@ -29,7 +29,7 @@ public class Controller {
         List<Integer> amount = getAmount(parsedMenuAmountList);
         Map<Menu, Integer> order = menuService.calculateOrder(menuName, amount);
         int beforeDcTotal = menuService.calculateBeforeDcTotal(order);
-        System.out.println(beforeDcTotal);
+        System.out.println(beforeDcTotal + "원");
     }
 
     private int getDate() {

@@ -29,4 +29,17 @@ public class MenuService {
         }
         return (int) beforeDcTotal;
     }
+
+    public int calculateChristmasDc(int date) {
+        int christmasDc = 0;
+        if (date <= 25) {
+            christmasDc += 900 + (100 * date);
+        }
+        return christmasDc;
+    }
+
+    public void calculateWeekdayDc(int date) {
+        int weekdayDc = 0;
+        if(date)
+    }
 }
